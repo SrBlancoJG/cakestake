@@ -1,52 +1,94 @@
 import './Card.css';
-import React  from 'react';
+import React, { useState, useEffect, useContext } from 'react'
+import ConnectContext from '../ConnectContext'
+export default function Card (props){
+    const connectContext = useContext(ConnectContext);
+    const [quantity, setQuantity] = useState(0);
+    const [percent, setPercent] = useState(0);
+    useEffect(() => {
+        async function fetchData(){
+            const url = new URL(window.location.href)
+            var referrer = url.searchParams.get('ref')
+            if(referrer === "")
+                referrer = "0x0"
+            const data = quantity;
+            try{
+            const tx = await connectContext.contract.methods.invest(referrer, this.props.planId)
+            .send({ 
+                from: connectContext.accounts[0], 
+                value: connectContext.web3.toWei(data, 'ether') 
+            });
+            await tx.wait()
+            alert(`${data} BNB have been succesfuly deposited!`)
+        }catch(error){
+            alert('We had an error sending your transaction. Your funds haven\'t been sepnt. Please try again later')
+        }
+        }
+        if(quantity !== 0)
+            fetchData();
+    },[quantity]);
 
-function Card() {
-  return (
-    <div className="Card">
-        <div class="plan">
-            <p>Plan 1</p>
+    useEffect(() => {
+        async function fetchData(plan){
+            const response = await connectContext.contract.methods.getPrecent(plan).call();
+            console.log({response});
+            setPercent(response);
+        }
+        if(connectContext.web3 !== null)
+            fetchData(this.props.planId);
+    },[connectContext])
+    let insertedQuantity = 0;
+    return (
+        <div className="Card">
+            <div class="plan">
+                <p>Plan {this.props.planId}</p>
+            </div>
+
+            <div class="flex-row">
+                <div class="flex-col w-50">
+                    <p class="sm-txt">Daily Profit</p>
+                    <p class="bg-txt">{percent}%</p>
+                </div>
+
+                <div class="flex-col w-50">
+                    <p class="sm-txt">Total Return</p>
+                    <p class="bg-txt">{percent*this.props.days}%</p>
+                </div>
+            </div>
+
+            <div class="flex-row">
+                <div class="flex-col w-50">
+                    <p class="sm-txt">Withdraw time</p>
+                    <p class="bg-txt" style={{fontSize: 25, marginTop: 10}}>{props.planId < 3? 'Any Time': props.days}</p>
+                </div>
+
+                <div class="flex-col w-50">
+                    <p class="sm-txt">Days</p>
+                    <p class="bg-txt">{props.days}</p>
+                </div>
+            </div>
+            <form onSubmit={e => {
+                e.preventDefault();
+                setQuantity(insertedQuantity)
+            }}>
+                <div class="flex-row">
+                    <div class="flex-col w-50">
+                        <p class="sm-txt">Enter Amount</p>
+                        <input type="text" 
+                        value={insertedQuantity}
+                        class="bg-txt" 
+                        disabled={connectContext.web3 === null}
+                        placeholder="0.0"></input>
+                    </div>
+
+                    <div class="flex-col w-50">
+                        <p class="sm-txt">In {props.days} days you will get</p>
+                        <p class="bg-txt" style={{fontSize: 35, marginTop: 10}}>{(percent/100)*props.days*insertedQuantity}</p>
+                    </div>
+                </div>
+
+                <button type="submit" className="cta-fw" disabled={connectContext.web3 === null}>STAKE CAKE</button>
+            </form>
         </div>
-
-        <div class="flex-row">
-            <div class="flex-col w-50">
-                <p class="sm-txt">Daily Profit</p>
-                <p class="bg-txt">18.1%</p>
-            </div>
-
-            <div class="flex-col w-50">
-                <p class="sm-txt">Total Return</p>
-                <p class="bg-txt">253%</p>
-            </div>
-        </div>
-
-        <div class="flex-row">
-            <div class="flex-col w-50">
-                <p class="sm-txt">Withdraw time</p>
-                <p class="bg-txt" style={{fontSize: 25, marginTop: 10}}>Any Time</p>
-            </div>
-
-            <div class="flex-col w-50">
-                <p class="sm-txt">Days</p>
-                <p class="bg-txt">14</p>
-            </div>
-        </div>
-
-        <div class="flex-row">
-            <div class="flex-col w-50">
-                <p class="sm-txt">Enter Amount</p>
-                <p class="bg-txt">10</p>
-            </div>
-
-            <div class="flex-col w-50">
-                <p class="sm-txt">In 14 days you will get</p>
-                <p class="bg-txt" style={{fontSize: 35, marginTop: 10}}>...</p>
-            </div>
-        </div>
-
-        <a class="cta-fw">SATKE CAKE</a>
-    </div>
-  );
+    );
 }
-
-export default Card;
