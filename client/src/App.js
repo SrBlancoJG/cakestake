@@ -1,7 +1,33 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import Header from './header/Header';
+import Hero from './hero/Hero';
+import Cards from './cards/Cards';
+import Referr from './referr/Referr';
+import Stake from './stake/Stake';
+import Footer from './footer/Footer';
+import footerImg from './footer.png';
+import {ConnectContextProvider} from './ConnectContext'
 import "./App.css";
 
-class App extends Component {
+export default function App(){
+  const [state, setState] = useState(null);
+  const handleState = (newState) => {
+    setState(newState);
+  };
+  return(
+    <ConnectContextProvider value={state}>
+    <Header onConnectionChange={handleState}/>
+    <div className="container">
+      <Hero />
+      <Cards />
+      <Referr />
+      <Stake />
+      <img src={footerImg} style={{display: 'block', margin: 'auto', marginTop: 25, width: '100%'}}></img>
+      <Footer />
+    </div>
+    </ConnectContextProvider>
+  );
+}
 
   
 
@@ -19,37 +45,3 @@ class App extends Component {
   //   // MISION Convertir un ETH en cake
   // };
 
-  render() {
-    if (!this.state) {
-      return <div id="web3-load-warning"></div>;
-    }
-  //   return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <div class="container">
-  //         <div id="logo" class="flex-row">
-  //           <img src={cake} ></img>
-  //           <p class="bg-txt"><span>CAKE</span>Stake</p>
-  //         </div>
-  //         <div id="wallet">{this.state.accounts[0]}</div>
-
-  //         <div style={{width: "25%"}}></div>
-
-  //         <div id="cake-price" class="sm-txt"><span>1 BNB = </span>${this.state.storageValue}</div>
-  //         <div id="header-buttons" class="flex-row">
-  //           <div class="cta">Support</div>
-  //           <div class="cta">Telegram</div>
-  //           <div class="cta">Audit</div>
-  //           <div class="cta">Help</div>
-  //           <div class="cta">Presentation</div>
-  //         </div>
-          
-  //       </div>
-  //     </header>
-  //   </div>
-    
-  // );
-  }
-}
-
-export default App;

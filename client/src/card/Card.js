@@ -5,6 +5,7 @@ export default function Card (props){
     const connectContext = useContext(ConnectContext);
     const [quantity, setQuantity] = useState(0);
     const [percent, setPercent] = useState(0);
+    const [inputQuantity, setInputQuantity] = useState(0);
     useEffect(() => {
         async function fetchData(){
             const url = new URL(window.location.href)
@@ -13,7 +14,7 @@ export default function Card (props){
                 referrer = "0x0"
             const data = quantity;
             try{
-            const tx = await connectContext.contract.methods.invest(referrer, this.props.planId)
+            const tx = await connectContext.contract.methods.invest(referrer, props.planId)
             .send({ 
                 from: connectContext.accounts[0], 
                 value: connectContext.web3.toWei(data, 'ether') 
@@ -30,18 +31,18 @@ export default function Card (props){
 
     useEffect(() => {
         async function fetchData(plan){
-            const response = await connectContext.contract.methods.getPrecent(plan).call();
+            console.log({connectContext})
+            const response = await connectContext.contract.methods.getPercent(plan).call();
             console.log({response});
             setPercent(response);
         }
-        if(connectContext.web3 !== null)
-            fetchData(this.props.planId);
+        if(connectContext !== null)
+            fetchData(props.planId);
     },[connectContext])
-    let insertedQuantity = 0;
     return (
         <div className="Card">
             <div class="plan">
-                <p>Plan {this.props.planId}</p>
+                <p>Plan {props.planId}</p>
             </div>
 
             <div class="flex-row">
@@ -52,7 +53,7 @@ export default function Card (props){
 
                 <div class="flex-col w-50">
                     <p class="sm-txt">Total Return</p>
-                    <p class="bg-txt">{percent*this.props.days}%</p>
+                    <p class="bg-txt">{percent*props.days}%</p>
                 </div>
             </div>
 
@@ -69,25 +70,26 @@ export default function Card (props){
             </div>
             <form onSubmit={e => {
                 e.preventDefault();
-                setQuantity(insertedQuantity)
+                setQuantity(quantity)
             }}>
                 <div class="flex-row">
                     <div class="flex-col w-50">
                         <p class="sm-txt">Enter Amount</p>
                         <input type="text" 
-                        value={insertedQuantity}
+                        value={inputQuantity}
+                        onChange={ e => {setInputQuantity(e.target.value);}}
                         class="bg-txt" 
-                        disabled={connectContext.web3 === null}
+                        disabled={connectContext === null}
                         placeholder="0.0"></input>
                     </div>
 
                     <div class="flex-col w-50">
                         <p class="sm-txt">In {props.days} days you will get</p>
-                        <p class="bg-txt" style={{fontSize: 35, marginTop: 10}}>{(percent/100)*props.days*insertedQuantity}</p>
+                        <p class="bg-txt" style={{fontSize: 35, marginTop: 10}}>{(percent/100)*props.days*inputQuantity}</p>
                     </div>
                 </div>
 
-                <button type="submit" className="cta-fw" disabled={connectContext.web3 === null}>STAKE CAKE</button>
+                <button type="submit" className="cta-fw" disabled={connectContext === null}>STAKE CAKE</button>
             </form>
         </div>
     );

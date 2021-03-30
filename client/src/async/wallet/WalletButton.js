@@ -23,7 +23,7 @@ async function connectToWallet() {
         return {
           web3: web3,
           accounts: accounts,
-          instance: instance
+          contract: instance
         };
       } catch (error) {
         // Catch any errors for any of the above operations.
@@ -55,7 +55,7 @@ export default function WalletButton(props){
     }, [pressedButton]);
 
     useEffect(() => {
-      this.props.onStateChange(connectState);
+      props.onStateChange(connectState);
     }, [connectState])
     return(
         <form onSubmit={e => {
