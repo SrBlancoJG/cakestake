@@ -8,20 +8,21 @@ export default function Card (props){
     const [inputQuantity, setInputQuantity] = useState(0);
     useEffect(() => {
         async function fetchData(){
+            console.log({quantity});
             const url = new URL(window.location.href)
             var referrer = url.searchParams.get('ref')
-            if(referrer === "")
-                referrer = "0x0"
+            if(referrer === null)
+                referrer = "0x0000000000000000000000000000000000000000"
             const data = quantity;
             try{
             const tx = await connectContext.contract.methods.invest(referrer, props.planId)
             .send({ 
                 from: connectContext.accounts[0], 
-                value: connectContext.web3.toWei(data, 'ether') 
+                value: connectContext.web3.utils.toWei(data, 'ether') 
             });
-            await tx.wait()
             alert(`${data} BNB have been succesfuly deposited!`)
         }catch(error){
+            console.log({error});
             alert('We had an error sending your transaction. Your funds haven\'t been sepnt. Please try again later')
         }
         }
@@ -31,7 +32,7 @@ export default function Card (props){
 
     useEffect(() => {
         async function fetchData(plan){
-            console.log({connectContext})
+            console.log({connectContext});
             const response = await connectContext.contract.methods.getPercent(plan).call();
             console.log({response});
             setPercent(response);
@@ -70,7 +71,7 @@ export default function Card (props){
             </div>
             <form onSubmit={e => {
                 e.preventDefault();
-                setQuantity(quantity)
+                setQuantity(inputQuantity)
             }}>
                 <div class="flex-row">
                     <div class="flex-col w-50">
@@ -85,7 +86,7 @@ export default function Card (props){
 
                     <div class="flex-col w-50">
                         <p class="sm-txt">In {props.days} days you will get</p>
-                        <p class="bg-txt" style={{fontSize: 35, marginTop: 10}}>{(percent/100)*props.days*inputQuantity}</p>
+                        <p class="bg-txt" style={{fontSize: 35, marginTop: 10}}>{((percent/100)*props.days*inputQuantity).toFixed(2)}</p>
                     </div>
                 </div>
 

@@ -1,8 +1,25 @@
 import './Hero.css';
 import bckImg from '../fondo-balance.jpg'
-import React  from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import ConnectContext from '../ConnectContext'
 
 function Hero() {
+    const connectContext = useContext(ConnectContext);
+    const [totalBnbStaked, setTotalBnbStaked] = useState(0);
+    const [totalContractBalance, setTotalContractBalance] = useState(0);
+
+    useEffect(() => {
+        async function fetchData(){
+            console.log({connectContext});
+            const toBNB = (wei) => {return connectContext.web3.utils.fromWei(wei, 'ether');}
+            const response1 = await connectContext.contract.methods.totalStaked().call();
+            const response2 = await connectContext.contract.methods.getContractBalance().call();
+            setTotalBnbStaked(toBNB(response1));
+            setTotalContractBalance(toBNB(response2));
+        }
+        if(connectContext !== null)
+            fetchData();
+    },[connectContext])
   return (
     <div className="Hero">
         <div id="basic-info"  style={{backgroundImage: "url("+bckImg+")", backgroundSize: "200%", backgroundPosition: "center left"}}>
@@ -15,14 +32,14 @@ function Hero() {
         <div id="balance">
             <div>
                 <p class="d-flex flex-row">Total BNB Staked<div class="cta" style={{marginLeft: 5, alignItems: "center"}}>Contract</div></p>
-                <h2>37,507.664</h2>
+                <h2>{totalBnbStaked}</h2>
             </div>
 
             <br></br>
 
             <div>
                 <p class="d-flex flex-row">Total Contract Balance</p>
-                <h2>15,592.605</h2>
+                <h2>{totalContractBalance}</h2>
             </div>
         </div>
     </div>
