@@ -11,7 +11,7 @@ function Hero() {
     useEffect(() => {
         async function fetchData(){
             console.log({connectContext});
-            const toBNB = (wei) => {return connectContext.web3.utils.fromWei(wei, 'ether');}
+            const toBNB = (wei) => {return Number(connectContext.web3.utils.fromWei(wei, 'ether')).toFixed(2);}
             const response1 = await connectContext.contract.methods.totalStaked().call();
             const response2 = await connectContext.contract.methods.getContractBalance().call();
             setTotalBnbStaked(toBNB(response1));
@@ -19,6 +19,7 @@ function Hero() {
         }
         if(connectContext !== null)
             fetchData();
+        
     },[connectContext])
   return (
     <div className="Hero">

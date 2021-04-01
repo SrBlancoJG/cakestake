@@ -20,6 +20,10 @@ async function connectToWallet() {
   
         // Set web3, accounts, and contract to the state, and then proceed with an
         // example of interacting with the contract's methods.
+        if(instance._address === null){
+          alert('I think you are connected to the wrong network...');
+          return null;
+        }
         return {
           web3: web3,
           accounts: accounts,
@@ -43,8 +47,10 @@ export default function WalletButton(props){
         async function fetchData(){
             try{
             const response = await connectToWallet();
-            setWalletAddress(response.accounts[0]);
-            setConnectState(response);
+            if(response !== null){
+              setWalletAddress(response.accounts[0]);
+              setConnectState(response);
+            }
             }catch(error) {
                 console.log(error);
             }
@@ -55,7 +61,8 @@ export default function WalletButton(props){
     }, [pressedButton]);
 
     useEffect(() => {
-      props.onStateChange(connectState);
+      if(connectState !== null)
+        props.onStateChange(connectState);
     }, [connectState])
     return(
         <form onSubmit={e => {

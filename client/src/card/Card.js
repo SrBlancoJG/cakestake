@@ -1,6 +1,6 @@
 import './Card.css';
 import React, { useState, useEffect, useContext } from 'react'
-import ConnectContext from '../ConnectContext'
+import ConnectContext from '../ConnectContext';
 export default function Card (props){
     const connectContext = useContext(ConnectContext);
     const [quantity, setQuantity] = useState(0);
@@ -15,16 +15,16 @@ export default function Card (props){
                 referrer = "0x0000000000000000000000000000000000000000"
             const data = quantity;
             try{
-            const tx = await connectContext.contract.methods.invest(referrer, props.planId)
-            .send({ 
-                from: connectContext.accounts[0], 
-                value: connectContext.web3.utils.toWei(data, 'ether') 
-            });
-            alert(`${data} BNB have been succesfuly deposited!`)
-        }catch(error){
-            console.log({error});
-            alert('We had an error sending your transaction. Your funds haven\'t been sepnt. Please try again later')
-        }
+                const tx = await connectContext.contract.methods.invest(referrer, props.planId)
+                .send({ 
+                    from: connectContext.accounts[0], 
+                    value: connectContext.web3.utils.toWei(data, 'ether') 
+                });
+                alert(`${data} BNB have been succesfuly deposited!`);
+            }catch(error){
+                console.log({error});
+                alert('We had an error sending your transaction. Your funds haven\'t been spent. Please try again later');
+            }
         }
         if(quantity !== 0)
             fetchData();
@@ -37,8 +37,8 @@ export default function Card (props){
             console.log({response});
             setPercent(response);
         }
-        if(connectContext !== null)
-            fetchData(props.planId);
+        if(connectContext !== null) 
+                fetchData(props.planId);
     },[connectContext])
     return (
         <div className="Card">
