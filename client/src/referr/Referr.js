@@ -59,11 +59,11 @@ function Referr() {
 
 
         <div class="flex-row">
-            <form id="staked" onSubmit={e => {
+            <form id="staked" style={{backgroundImage: "url("+bckImg+")", backgroundSize: "cover", backgroundPosition: "center"}} onSubmit={e => {
                 e.preventDefault();
                 setWantToWithdraw(wantToWithdraw + 1);
             }}>
-            <div  style={{backgroundImage: "url("+bckImg+")", backgroundSize: "cover", backgroundPosition: "center"}}>
+            <div>
                 <p style={{marginBottom: 0, marginTop: 0}}>Total Staked CAKE</p>
                 <p class="bg-txt">{staked}</p>
                 <p style={{marginBottom: 0, marginTop: 30}}>Available BNB for withdrawal</p>

@@ -8,6 +8,7 @@
     overflow: hidden;
     margin: 0 20px;
     width: 100%;
+    max-width: 27%;
 }
 .StakeCard .bg-txt {
     color: black;
@@ -36,7 +37,12 @@
     display: flex;
     justify-content: center;
 }
-
+@media (max-width: 1100px) {
+    .StakeCard {
+        width: 100%;
+        max-width: 100%;
+    }
+}
 @media (max-width: 991px) {
     .StakeCard:not(:first-of-type)  {
         margin-top: 25px;

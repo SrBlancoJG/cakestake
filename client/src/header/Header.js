@@ -27,11 +27,8 @@ class Header extends Component {
 
           <div id="cake-price" class="sm-txt"><span>1 BNB = </span>PRECIO</div>
           <div id="header-buttons" class="flex-row">
-            <div class="cta">Support</div>
             <div class="cta">Telegram</div>
             <div class="cta">Audit</div>
-            <div class="cta">Help</div>
-            <div class="cta">Presentation</div>
           </div>
           
         </div>

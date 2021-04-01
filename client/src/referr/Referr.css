@@ -23,7 +23,10 @@
 #staked .cta-fw {
     --color: rgba(133, 133, 133, 1);
     --d-color: rgba(113, 113, 113, 1);
-    --s-color: rgba(113, 113, 113, .8);
+    /* --s-color: rgba(113, 113, 113, .8); */
+    --s-color: var(--purple);
+    border: 0px !important;
+    outline: 0px !important;
 }
 
 #referral {
