@@ -90,7 +90,7 @@ export default function Card (props){
                     </div>
                 </div>
 
-                <button type="submit" className="cta-fw" disabled={connectContext === null}>STAKE CAKE</button>
+                <button type="submit" className="cta-fw" disabled={connectContext === null}>STAKE BNB</button>
             </form>
         </div>
     );

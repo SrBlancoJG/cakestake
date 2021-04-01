@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import cake from '../cake.webp';
+import bnb_logo from '../bnb_logo.png';
 import "./Header.css";
 import WalletButton from '../async/wallet/WalletButton'
 
@@ -18,12 +18,12 @@ class Header extends Component {
       <header className="Header-header">
         <div class="container">
           <div id="logo" class="flex-row">
-            <img src={cake} ></img>
-            <p class="bg-txt"><span>CAKE</span>Stake</p>
+            <img src={bnb_logo} style={{marginTop: 10, marginBottom: 10}}></img>
+            <p class="bg-txt"><span>BNB</span>Factory</p>
           </div>
           <WalletButton onStateChange={this.handleState}></WalletButton>
 
-          <div style={{width: "25%"}}></div>
+          <div style={{width: "40%"}}></div>
 
           <div id="cake-price" class="sm-txt"><span>1 BNB = </span>PRECIO</div>
           <div id="header-buttons" class="flex-row">

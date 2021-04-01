@@ -64,11 +64,11 @@ function Referr() {
                 setWantToWithdraw(wantToWithdraw + 1);
             }}>
             <div>
-                <p style={{marginBottom: 0, marginTop: 0}}>Total Staked CAKE</p>
+                <p style={{marginBottom: 0, marginTop: 0}}>Total Staked BNB</p>
                 <p class="bg-txt">{staked}</p>
                 <p style={{marginBottom: 0, marginTop: 30}}>Available BNB for withdrawal</p>
                 <p class="bg-txt">{withdrawable}</p>
-                <button class="cta-fw" type="submit" style={{marginTop: 30}}>WITHDRAW BNB</button>
+                <button class="cta-fw" type="submit" style={{marginTop: 50}}>WITHDRAW BNB</button>
             </div>
             </form>
 
