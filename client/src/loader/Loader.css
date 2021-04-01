@@ -1,0 +1,102 @@
+.Loader {
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+    pointer-events: none;
+
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
+
+.loader-logo {
+    width: 100vw;
+    height: 100vh;
+    transform: rotate(0deg);
+
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-duration: 1.25s;
+    animation-delay: 1.25s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.Loader .one,
+.Loader .two,
+.Loader .three {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.Loader .one {
+    margin-top: calc(50vh - 60px);
+    transform: translateY(-60px);
+
+    animation-name: bnbLogoMakeUp;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+.Loader .two {
+    margin-top: auto;
+
+    animation-name: bnbLogoMake;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+.Loader .three {
+    margin-top: calc(50vh + 20px);
+    transform: translateY(60px);
+
+    animation-name: bnbLogoMakeDown;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+@keyframes bnbLogoMakeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+@keyframes bnbLogoMake {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes bnbLogoMakeDown {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

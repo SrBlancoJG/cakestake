@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Loader from './loader/Loader';
 import Header from './header/Header';
 import Hero from './hero/Hero';
 import Cards from './cards/Cards';
@@ -16,6 +17,7 @@ export default function App(){
   };
   return(
     <ConnectContextProvider value={state}>
+    <Loader />
     <Header onConnectionChange={handleState}/>
     <div className="container">
       <Hero />

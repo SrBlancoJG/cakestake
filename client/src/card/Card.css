@@ -28,7 +28,11 @@
     margin: 0;
     font-size: 12px;
 }
-
+.Card button,
+.Card button:focus {
+    border: 0px !important;
+    outline: 0px !important;
+}
 .Card input,
 .Card p {
     max-width: 120px;
