@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import getWeb3 from '../../getWeb3';
-import BNBStake from "../../contracts/BNBStake.json"
+import BNBFactory from "../../contracts/BNBFactory.json"
 
 async function connectToWallet() {
     try {
@@ -12,9 +12,9 @@ async function connectToWallet() {
   
         // Get the contract instance.
         const networkId = await web3.eth.net.getId();
-        const deployedNetwork = BNBStake.networks[networkId];
+        const deployedNetwork = BNBFactory.networks[networkId];
         const instance = new web3.eth.Contract(
-          BNBStake.abi,
+          BNBFactory.abi,
           deployedNetwork && deployedNetwork.address,
         );
   
