@@ -113,12 +113,12 @@ contract BNBFactory {
 		commissionWallet = wallet;
 		startUNIX = startDate;
 
-        plans.push(Plan(14, 80));
+        plans.push(Plan(14, 50));
         plans.push(Plan(21, 65));
-        plans.push(Plan(28, 50));
-        plans.push(Plan(14, 80));
+        plans.push(Plan(28, 80));
+        plans.push(Plan(14, 50));
         plans.push(Plan(21, 65));
-        plans.push(Plan(28, 50));
+        plans.push(Plan(28, 80));
 	}
 	// payable hace que para llamar a esta funcion se le puede pagar un coste junto a la llamada
 	// El coste pagado (se entiende) se anade implicitamente al balance del contrato
