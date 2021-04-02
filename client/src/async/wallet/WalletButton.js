@@ -73,7 +73,7 @@ export default function WalletButton(props){
             e.preventDefault();
             setPressedButton(pressedButton + 1);
         }}>
-        <button id="wallet" type="submit">{walletAddress.substring(0,4)}...{walletAddress.substring(walletAddress.length - 4,walletAddress.length)}</button>
+        <button id="wallet" type="submit">{walletAddress === 'Connect to Wallet'? walletAddress : `${walletAddress.substring(0,4)}...${walletAddress.substring(walletAddress.length - 4,walletAddress.length)}`}</button>
         </form>
     );
 }
