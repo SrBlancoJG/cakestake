@@ -6,6 +6,7 @@ export default function Card (props){
     const [quantity, setQuantity] = useState(0);
     const [percent, setPercent] = useState(0);
     const [inputQuantity, setInputQuantity] = useState(0);
+    const [profit, setProfit] = useState(0);
     useEffect(() => {
         async function fetchData(){
             console.log({quantity});
@@ -34,12 +35,23 @@ export default function Card (props){
         async function fetchData(plan){
             console.log({connectContext});
             const response = await connectContext.contract.methods.getPercent(plan).call();
-            console.log({response});
+            console.log({plan, response});
             setPercent(response);
         }
         if(connectContext !== null) 
                 fetchData(props.planId);
     },[connectContext])
+
+    useEffect(() => {
+        async function fetchData(plan){
+
+            const response = await connectContext.contract.methods.getResult(plan, connectContext.web3.utils.toWei(inputQuantity, 'ether')).call();
+            console.log({inputQuantity, response});
+            setProfit(Number(connectContext.web3.utils.fromWei(response[1], 'ether')));
+        }
+        if(connectContext !== null && inputQuantity !== "")
+            fetchData(props.planId)
+    }, [inputQuantity])
     return (
         <div className="Card">
             <div class="plan">
@@ -49,12 +61,12 @@ export default function Card (props){
             <div class="flex-row">
                 <div class="flex-col w-50">
                     <p class="sm-txt">Daily Profit</p>
-                    <p class="bg-txt">{percent}%</p>
+                    <p class="bg-txt">{(percent/props.days).toFixed(2)}%</p>
                 </div>
 
                 <div class="flex-col w-50">
                     <p class="sm-txt">Total Return</p>
-                    <p class="bg-txt">{percent*props.days}%</p>
+                    <p class="bg-txt">{percent}%</p>
                 </div>
             </div>
 
@@ -86,7 +98,7 @@ export default function Card (props){
 
                     <div class="flex-col w-50">
                         <p class="sm-txt">In {props.days} days you will get</p>
-                        <p class="bg-txt" style={{fontSize: 35, marginTop: 10}}>{((percent/100)*props.days*inputQuantity).toFixed(2)}</p>
+                        <p class="bg-txt" style={{fontSize: 35, marginTop: 10}}>{profit.toFixed(2)}</p>
                     </div>
                 </div>
 

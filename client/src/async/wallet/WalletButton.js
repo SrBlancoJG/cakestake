@@ -24,6 +24,10 @@ async function connectToWallet() {
           alert('I think you are connected to the wrong network...');
           return null;
         }
+        if(accounts.length === 0){
+          alert('I think you dont have any account...');
+          return null;
+        }
         return {
           web3: web3,
           accounts: accounts,
@@ -69,7 +73,7 @@ export default function WalletButton(props){
             e.preventDefault();
             setPressedButton(pressedButton + 1);
         }}>
-        <button id="wallet" type="submit">{walletAddress}</button>
+        <button id="wallet" type="submit">{walletAddress === 'Connect to Wallet'? walletAddress : `${walletAddress.substring(0,4)}...${walletAddress.substring(walletAddress.length - 4,walletAddress.length)}`}</button>
         </form>
     );
 }

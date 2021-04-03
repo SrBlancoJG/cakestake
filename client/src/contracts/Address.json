@@ -51673,7 +51673,7 @@
     }
   },
   "schemaVersion": "3.3.4",
-  "updatedAt": "2021-04-01T15:33:58.660Z",
+  "updatedAt": "2021-04-02T10:36:11.608Z",
   "networkType": "ethereum",
   "devdoc": {
     "details": "Collection of functions related to the address type",
