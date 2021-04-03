@@ -10,7 +10,11 @@ function Footer() {
           <a href={'https://www.binance.org/en/smartChain'} target={'_blank'} className="sm-txt">Binance Smart Chain</a>
         </div>
 
-        <div className="flex-col txt-center"></div>
+        <div className="flex-col txt-center">
+        <p className="sm-txt">Open for audits</p>
+        <a href={'https://t.me/AlaLunaMan'} target={'_blank'} className="sm-txt">Telegram Admin 1</a>
+        <a href={'https://t.me/toms_clancys'} target={'_blank'} className="sm-txt">Telegram Admin 2</a>
+        </div>
 
         <div className="flex-col txt-right">
           <p className="sm-txt">© 2021. All rights reserved.</p>
