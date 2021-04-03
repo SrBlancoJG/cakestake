@@ -35,7 +35,7 @@ function Hero() {
         <div id="balance">
             <div>
                 <p className="d-flex flex-row">Total BNB Staked<div className="cta" style={{marginLeft: 5, alignItems: "center"}}>
-                    <a target={'_blank'} href={'https://testnet.bscscan.com/address/0xcEb8beB04b8Cc5487eF3c05CC8B9665D45a68970'}>Contract</a>
+                    <a target={'_blank'} href={'https://bscscan.com/address/0x47c62eeb523a7a093850c7af513ae8d255cfc2fb'}>Contract</a>
                     </div></p>
                 <h2>{totalBnbStaked}</h2>
             </div>
