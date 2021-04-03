@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Loader from './loader/Loader';
 import Header from './header/Header';
 import Hero from './hero/Hero';
@@ -9,16 +9,28 @@ import Footer from './footer/Footer';
 import footerImg from './footer.png';
 import {ConnectContextProvider} from './ConnectContext'
 import "./App.css";
+import axios from 'axios';
+import cheerio from 'cheerio'; 
 
 export default function App(){
   const [state, setState] = useState(null);
+  const [bnbPrice, setBnbPrice] = useState(0);
   const handleState = (newState) => {
     setState(newState);
   };
+  useEffect(() => {
+    async function fetchData(){
+      const pageContent = await axios.get('https://bscscan.com/');
+      const $ = cheerio.load(pageContent.data);
+      setBnbPrice($('a.text-size-1.text-link').text());
+    };
+    if(state !== null)
+      fetchData();
+  }, [state])
   return(
     <ConnectContextProvider value={state}>
     <Loader />
-    <Header onConnectionChange={handleState}/>
+    <Header bnbPrice={bnbPrice} onConnectionChange={handleState}/>
     <div className="container">
       <Hero />
       <Cards />

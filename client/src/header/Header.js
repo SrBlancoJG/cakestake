@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import bnb_logo from '../bnb_logo.png';
 import "./Header.css";
 import WalletButton from '../async/wallet/WalletButton'
@@ -25,7 +25,7 @@ class Header extends Component {
 
           <div style={{width: "40%"}}></div>
 
-          <div id="cake-price" class="sm-txt"><span>1 BNB = </span>PRECIO</div>
+          <div id="cake-price" class="sm-txt"><span>1 BNB = </span>{this.props.bnbPrice}</div>
           <div id="header-buttons" class="flex-row">
             <div class="cta"><a target={'_blank'} href={'https://t.me/bnbfactory'}>Telegram</a></div>
           </div>
