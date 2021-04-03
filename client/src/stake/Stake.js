@@ -35,7 +35,7 @@ function Stake() {
     <div className="Stake">
         <h2 class="bg-txt">YOUR STAKE</h2>
 
-        <div class="flex-row" style={{justifyContent: "space-between"}}>
+        <div class="flex-row" style={{justifyContent: "flex-start", flexWrap: "wrap"}}>
             {stakes}
         </div>
     </div>
