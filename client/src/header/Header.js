@@ -27,7 +27,7 @@ class Header extends Component {
 
           <div id="cake-price" class="sm-txt"><span>1 BNB = </span>PRECIO</div>
           <div id="header-buttons" class="flex-row">
-            <div class="cta">Telegram</div>
+            <div class="cta"><a target={'_blank'} href={'https://t.me/joinchat/mTUGhTLV5UcxNzhk'}>Telegram</a></div>
             <div class="cta">Audit</div>
           </div>
           

@@ -1,5 +1,5 @@
 import './Referr.css';
-import bckImg from '../fondo-stake.jpg';
+import bckImg from '../bg_morado.png';
 import React, { useState, useEffect, useContext } from 'react';
 import ConnectContext from '../ConnectContext';
 
@@ -59,7 +59,7 @@ function Referr() {
 
 
         <div class="flex-row">
-            <form id="staked" style={{backgroundImage: "url("+bckImg+")", backgroundSize: "cover", backgroundPosition: "center"}} onSubmit={e => {
+            <form id="staked" style={{backgroundImage: "url("+bckImg+")"}} onSubmit={e => {
                 e.preventDefault();
                 setWantToWithdraw(wantToWithdraw + 1);
             }}>

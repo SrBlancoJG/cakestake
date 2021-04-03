@@ -1,0 +1,6 @@
+.Footer {
+    margin: 50px auto 25px auto;
+}
+.Footer a {
+    color: var(--blue);
+}
