@@ -26,6 +26,7 @@ class Header extends Component {
           <div style={{width: "40%"}}></div>
           <div id="header-buttons" className="flex-row">
             <div className="cta"><a target={'_blank'} href={'https://t.me/bnbfactory'}>Telegram</a></div>
+            <div className="cta"><a target={'_blank'} href={'https://hazecrypto.net/wp-content/uploads/2021/01/HazeSecurity_TronStake.pdf'}>Audit</a></div>
           </div>
           
         </div>

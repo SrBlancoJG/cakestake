@@ -11,14 +11,12 @@ function Footer() {
         </div>
 
         <div className="flex-col txt-center">
-        <p className="sm-txt">Open for audits</p>
-        <a href={'https://t.me/AlaLunaMan'} target={'_blank'} className="sm-txt">Telegram Admin 1</a>
-        <a href={'https://t.me/toms_clancys'} target={'_blank'} className="sm-txt">Telegram Admin 2</a>
+        <p className="sm-txt">The contract is a fork of the popular <a href={'https://tronstake.com/'} target={'_blank'} className="sm-txt">TronStake</a> contract and has been audited by hazecrypto.<br></br> The audit report can be read <a href={'https://hazecrypto.net/wp-content/uploads/2021/01/HazeSecurity_TronStake.pdf'} target={'_blank'} className="sm-txt">here</a></p>
         </div>
 
         <div className="flex-col txt-right">
           <p className="sm-txt">© 2021. All rights reserved.</p>
-          <a href={'https://bnbstake.app'} target={'_blank'} className="sm-txt">https://bnbfactory.app</a>
+          <a href={'https://bnbfactory.app'} target={'_blank'} className="sm-txt">https://bnbfactory.app</a>
         </div>
       </div>
     </div>

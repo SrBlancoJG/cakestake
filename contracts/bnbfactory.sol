@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT 
  
  /*   BNBFactory - investment platform based on Binance Smart Chain blockchain smart-contract technology. Safe and legit!
- *    Fork of the contract of BNBStake, to see the original contract, go to https://bscscan.com/address/0xf3a7c3d8ccd8cf3a891f9d3da22e58e3e438d15f#code
  *
  *  /$$$$$$$  /$$   /$$ /$$$$$$$  /$$$$$$$$                   /$$                                  
  * | $$__  $$| $$$ | $$| $$__  $$| $$_____/                  | $$                                  
@@ -20,7 +19,7 @@
  *   │                                                                       |
  *   │   Telegram Public Group: https://t.me/bnbfactory                      |
  *   |                                                                       |
- *   |   E-mail: admin@bnbfactory.app                                        |
+ *   |                                                                       |
  *   └───────────────────────────────────────────────────────────────────────┘
  *
  *   [USAGE INSTRUCTION]
@@ -69,7 +68,6 @@ contract BNBFactory {
 	uint256 public totalStaked;
 	uint256 public totalRefBonus;
 
-	// Esta struct
     struct Plan {
         uint256 time;
         uint256 percent;
