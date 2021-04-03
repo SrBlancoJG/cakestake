@@ -33,9 +33,9 @@ function Stake() {
   }, [connectContext])
   return (
     <div className="Stake">
-        <h2 class="bg-txt">YOUR STAKE</h2>
+        <h2 className="bg-txt">YOUR STAKE</h2>
 
-        <div class="flex-row" style={{justifyContent: "flex-start", flexWrap: "wrap"}}>
+        <div className="flex-row" style={{justifyContent: "flex-start", flexWrap: "wrap"}}>
             {stakes}
         </div>
     </div>

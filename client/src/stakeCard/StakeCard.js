@@ -5,16 +5,16 @@ function StakeCard(props) {
   console.log({props});
   return (
     <div className="StakeCard">
-        <div class="flex-row" style={{justifyContent: "space-around"}}>
+        <div className="flex-row" style={{justifyContent: "space-around"}}>
         <span className={props.plan < 3? "badge-purple" : "badge-blue"}>Plan {props.plan}</span>
         </div>
-        <div class="flex-row" style={{justifyContent: "space-between", padding: "16px 16px 0 16px"}}>
-            <p class="bg-txt" style={{margin: 0}}>{props.amount}</p>
-            <p class="bg-txt" style={{margin: 0}}>{props.profit}</p>
+        <div className="flex-row" style={{justifyContent: "space-between", padding: "16px 16px 0 16px"}}>
+            <p className="bg-txt" style={{margin: 0}}>{props.amount}</p>
+            <p className="bg-txt" style={{margin: 0}}>{props.profit}</p>
         </div>
-        <div class="flex-row" style={{justifyContent: "space-between", padding: "0 16px 16px 16px"}}>
-            <p class="sm-txt">BNB</p>
-            <p class="sm-txt">BNB</p>
+        <div className="flex-row" style={{justifyContent: "space-between", padding: "0 16px 16px 16px"}}>
+            <p className="sm-txt">BNB</p>
+            <p className="sm-txt">BNB</p>
         </div>
 
         <div className="flex-row" style={{justifyContent: 'space-around', textAlign: 'center'}}>

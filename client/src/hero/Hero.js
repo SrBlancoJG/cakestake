@@ -29,11 +29,12 @@ function Hero() {
             <p>Minimal deposit: 0.05 BNB</p>
             <p>Maximum deposit: 5 BNB</p>
             <p>Earnings every moment, withdraw any time (if you use capitalization of interest you can withdraw only after end of your deposit)</p>
+            <p className="italic">* After withdrawing/staking, please rferesh the page after the transaction is confirmed to see the changes</p>
         </div>
         
         <div id="balance">
             <div>
-                <p class="d-flex flex-row">Total BNB Staked<div class="cta" style={{marginLeft: 5, alignItems: "center"}}>
+                <p className="d-flex flex-row">Total BNB Staked<div className="cta" style={{marginLeft: 5, alignItems: "center"}}>
                     <a target={'_blank'} href={'https://testnet.bscscan.com/address/0xcEb8beB04b8Cc5487eF3c05CC8B9665D45a68970'}>Contract</a>
                     </div></p>
                 <h2>{totalBnbStaked}</h2>
@@ -42,7 +43,7 @@ function Hero() {
             <br></br>
 
             <div>
-                <p class="d-flex flex-row">Total Contract Balance</p>
+                <p className="d-flex flex-row">Total Contract Balance</p>
                 <h2>{totalContractBalance}</h2>
             </div>
         </div>
