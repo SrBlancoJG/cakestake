@@ -13,6 +13,7 @@ function Referr() {
     const [usersInvited, setUsersInvited] = useState(0);
     const [wantToWithdraw, setWantToWithdraw] = useState(0);
 
+
     useEffect(() => {
         async function fetchData(){
             const toBNB = (wei) => {return Number(connectContext.web3.utils.fromWei(wei, 'ether')).toFixed(3);}
@@ -46,8 +47,9 @@ function Referr() {
                     alert('We had an error sending your transaction. The funds haven\'t been deposited yet. Please try again later');
                 }
             };
-            if(connectContext !== null && wantToWithdraw !== 0)
+            if(connectContext !== null && wantToWithdraw !== 0){
                 fetchData();
+            }
     }, [wantToWithdraw]);
   return (
     <div className="Referr">
@@ -77,7 +79,7 @@ function Referr() {
                     <p class="sm-txt" style={{margin: "0 0 16px 0"}}>Your Referral Link</p>
                     
                     <div class="flex-row">
-                        <div class="input">https://www.cakestake.app/?ref={referrerAddress}</div>
+                        <div class="input">https://bnbfactory.app/?ref={referrerAddress}</div>
                         <a class="cta"style={{marginRight: 15}}>Ctr+C</a>
                     </div>
 

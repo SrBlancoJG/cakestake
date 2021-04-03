@@ -9,7 +9,7 @@ function Stake() {
 
   useEffect(() => {
     async function fecthData(){
-      const toBNB = (wei) => {return Number(connectContext.web3.utils.fromWei(wei, 'ether')).toFixed(3);}
+      const toBNB = (wei) => {return Number(connectContext.web3.utils.fromWei(wei, 'ether')).toFixed(2);}
       let arrayOfStakes = [];
       const numberOfDeposits = Number(await connectContext.contract.methods.getUserAmountOfDeposits(connectContext.accounts[0]).call());
       for(let i = 0; i < numberOfDeposits; i++){
@@ -24,7 +24,7 @@ function Stake() {
         });
       }
       const listOfStakesHtml = arrayOfStakes.map((stake) => 
-          <StakeCard key={stake.start.getSeconds()} plan={stake.plan} amount={stake.amount} profit={stake.profit} start={stake.start.getSeconds()} finish={stake.finish.getSeconds()}/>
+          <StakeCard key={stake.start.getSeconds()} plan={stake.plan} amount={stake.amount} profit={stake.profit} start={stake.start} finish={stake.finish}/>
       );
       setStakes(listOfStakesHtml);
     };

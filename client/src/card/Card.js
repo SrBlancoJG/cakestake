@@ -7,6 +7,7 @@ export default function Card (props){
     const [percent, setPercent] = useState(0);
     const [inputQuantity, setInputQuantity] = useState(0);
     const [profit, setProfit] = useState(0);
+
     useEffect(() => {
         async function fetchData(){
             console.log({quantity});
@@ -24,11 +25,12 @@ export default function Card (props){
                 alert(`${data} BNB have been succesfuly deposited!`);
             }catch(error){
                 console.log({error});
-                alert('We had an error sending your transaction. Your funds haven\'t been spent. Please try again later');
+                alert('The transaction have failed. Your funds haven\'t been staked. Please try again later');
             }
         }
-        if(quantity !== 0)
+        if(quantity !== 0){
             fetchData();
+        }
     },[quantity]);
 
     useEffect(() => {

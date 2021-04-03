@@ -23,7 +23,7 @@ export default function App(){
       <Hero />
       <Cards />
       <Referr />
-      <Stake />
+      <Stake/>
       <img src={footerImg} style={{display: 'block', margin: 'auto', marginTop: 25, width: '100%'}}></img>
       <Footer />
     </div>

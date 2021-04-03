@@ -19,6 +19,20 @@
     margin-top: 0;
 }
 
+.badge-blue{
+    background-color: var(--blue);
+    border-radius: 6px;
+    padding: 0px 10px;
+    color: white;
+}
+
+.badge-purple{
+    background-color: var(--purple);
+    border-radius: 6px;
+    padding: 0px 10px;
+    color: white;
+}
+
 .progress {
     border-radius: 6px;
     background-color: rgba(133, 133, 133, 0.8);
