@@ -13,7 +13,7 @@
     font-size: 28px;
 }
 .Header #logo .bg-txt span {
-    color: var(--blue);
+    color: var(--purple);
 }
 .Header #cake-price span {
     color: var(--purple);
