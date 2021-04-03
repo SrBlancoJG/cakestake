@@ -4,6 +4,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import ConnectContext from '../ConnectContext';
 
 function Referr() {
+    const copyCodeToClipboard = () => {
+        const el = document.querySelector('#referr-link').innerHTML;
+        navigator.clipboard.writeText(el)
+    }
     const connectContext = useContext(ConnectContext);
     const [withdrawable, setWithdrawable] = useState(0.0);
     const [staked, setStaked] = useState(0.0);
@@ -79,8 +83,8 @@ function Referr() {
                     <p class="sm-txt" style={{margin: "0 0 16px 0"}}>Your Referral Link</p>
                     
                     <div class="flex-row">
-                        <div class="input">https://bnbfactory.app/?ref={referrerAddress}</div>
-                        <a class="cta"style={{marginRight: 15}}>Ctr+C</a>
+                        <div id="referr-link" class="input">https://bnbfactory.app/?ref={referrerAddress}</div>
+                        <button id="copy" onClick={() => copyCodeToClipboard()} class="cta"style={{marginRight: 15}}>Ctr+C</button>
                     </div>
 
                     <div class="flex-row" style={{marginTop: 25}}>

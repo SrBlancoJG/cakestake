@@ -40,6 +40,10 @@
 #referral > .flex-col > .flex-row {
     padding: 0 15px;
 }
+#referral #copy {
+    border: 0px;
+    outline: 0px !important;
+}
 
 .input {
     border-radius: 5px;

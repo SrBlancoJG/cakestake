@@ -18,7 +18,7 @@ function StakeCard(props) {
         </div>
 
         <div className="flex-row" style={{justifyContent: 'space-around', textAlign: 'center'}}>
-        Profit can be claimed at <br></br>{props.plan < 3? "Any Time" : new Date(props.finish).toLocaleDateString()}
+        Profit can be claimed <br></br>{props.plan < 3? "at Any Time" : new Date(props.finish).toLocaleDateString()}
         </div>
     </div>
   );
