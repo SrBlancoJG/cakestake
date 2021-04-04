@@ -5,7 +5,7 @@ import bnbLogo3_1 from '../bnb_logo_3_1.png';
 import './Loader.css';
 import React from 'react';
 
-function StakeCard() {
+function StakeCard(props) {
     window.addEventListener('load', 
     ()=> {
         setTimeout(() => {

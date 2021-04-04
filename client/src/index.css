@@ -5,6 +5,7 @@
   --blue: rgb(31, 199, 212);
   --d-blue: rgb(11, 189, 192);
   --s-blue: rgba(11, 189, 192, .5);
+  --bg-txt: 45px;
 }
 
 html *::selection {
@@ -154,6 +155,12 @@ form:focus {
 .m-0 {
   margin: 0;
 }
+/* Spacer */
+.spacer-50{
+  width: 100%;
+  height: 50px;
+  background: transparent;
+}
 
 /* Tamaño */
 .w-50 {
@@ -184,6 +191,9 @@ form:focus {
 }
 .txt-right {
   text-align: right;
+}
+.txt-decoration-none{
+  text-decoration: none !important;
 }
 
 @media (max-width: 911px) {

@@ -1,0 +1,6 @@
+.update ul{
+    list-style-type: none;
+}
+.update ul li{
+    margin: 10px 0;
+}

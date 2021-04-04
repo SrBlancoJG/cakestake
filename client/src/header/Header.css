@@ -11,6 +11,7 @@
 .Header #logo .bg-txt {
     margin: auto 10px;
     font-size: 28px;
+    color: black;
 }
 .Header #logo .bg-txt span {
     color: var(--purple);

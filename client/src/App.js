@@ -6,11 +6,8 @@ import Cards from './cards/Cards';
 import Referr from './referr/Referr';
 import Stake from './stake/Stake';
 import Footer from './footer/Footer';
-import footerImg from './footer.png';
 import {ConnectContextProvider} from './ConnectContext'
 import "./App.css";
-import axios from 'axios';
-import cheerio from 'cheerio'; 
 
 export default function App(){
   const [state, setState] = useState(null);
@@ -19,14 +16,13 @@ export default function App(){
   };
   return(
     <ConnectContextProvider value={state}>
-    <Loader />
+    <Loader/>
     <Header onConnectionChange={handleState}/>
     <div className="container">
       <Hero />
       <Cards />
       <Referr />
       <Stake/>
-      <img src={footerImg} style={{display: 'block', margin: 'auto', marginTop: 25, width: '100%'}}></img>
       <Footer />
     </div>
     </ConnectContextProvider>

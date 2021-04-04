@@ -55,7 +55,7 @@ export default function Card (props){
             fetchData(props.planId)
     }, [inputQuantity])
     return (
-        <div className="Card">
+        <div className={`Card ${props.planId === 2? 'thick': ''}`}>
             <div className="plan">
                 <p>Plan {props.planId}</p>
             </div>
@@ -92,7 +92,7 @@ export default function Card (props){
                         <p className="sm-txt">Enter Amount</p>
                         <input type="text" 
                         value={inputQuantity}
-                        onChange={ e => {setInputQuantity(e.target.value);}}
+                        onChange={ e => {setInputQuantity(e.target.value.replace(',', '.'));}}
                         className="bg-txt" 
                         disabled={connectContext === null}
                         placeholder="0.0"></input>

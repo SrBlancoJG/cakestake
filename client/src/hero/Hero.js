@@ -24,12 +24,12 @@ function Hero() {
   return (
     <div className="Hero">
         <div id="basic-info"  style={{backgroundImage: "url("+bckImg+")", backgroundSize: "200%", backgroundPosition: "center left"}}>
-            <p>Total income: based on your tarrif plan (from 5% to 8% daily)</p>
+            <p>Total income: based on your tarif plan (from 2% to 3% daily at the begining of the project)</p>
             <p>Basic interest rate: +0.5% every 24 hours - only for new deposits</p>
             <p>Minimal deposit: 0.05 BNB</p>
             <p>Maximum deposit: 5 BNB</p>
             <p>Earnings every moment, withdraw any time (if you use capitalization of interest you can withdraw only after end of your deposit)</p>
-            <p className="italic">* After withdrawing/staking, please rferesh the page after the transaction is confirmed to see the changes</p>
+            <p className="italic">* After withdrawing/staking, please refresh the page after the transaction is confirmed to see the changes</p>
         </div>
         
         <div id="balance">
