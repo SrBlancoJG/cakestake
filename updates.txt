@@ -1,0 +1,3 @@
+Arreglar el loader
+Quitar el boton de conect to wallet del changelog
+Crear un dominio para testear las actualizaciones

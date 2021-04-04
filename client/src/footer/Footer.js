@@ -13,7 +13,7 @@ function Footer() {
         </div>
 
         <div className="flex-col txt-center">
-        <p className="sm-txt">The contract is a fork of the popular <a href={'https://bnbstake.app/'} target={'_blank'} className="sm-txt">BNBStake</a> contract that has been audited by hazecrypto.<br></br> The audit report can be read <a href={'https://hazecrypto.net/wp-content/uploads/2021/03/HazeSecurity_BNBStake.pdf'} target={'_blank'} className="sm-txt">here</a></p>
+        <p className="sm-txt">We are currently working on auditing the project. It will be coming very soon.</p>
         </div>
 
         <div className="flex-col txt-right">

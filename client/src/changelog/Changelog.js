@@ -26,6 +26,8 @@ export default function Changelog(){
                     <li>We are also updating the footer to make clear that (for the moment) <strong>our contract is not audited, but the contract we are forking is.</strong></li>
                     
                     <li>Also some small typos have been fixed.</li>
+
+                    <li>Fixed a small bug with the plan inputs and commas.</li>
                 </ul>
             </div>
             </div>
