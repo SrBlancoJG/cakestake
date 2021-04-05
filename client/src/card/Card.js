@@ -5,8 +5,10 @@ export default function Card (props){
     const connectContext = useContext(ConnectContext);
     const [quantity, setQuantity] = useState(0);
     const [percent, setPercent] = useState(0);
+    const [returned, setReturned] = useState(0);
     const [inputQuantity, setInputQuantity] = useState(0);
     const [profit, setProfit] = useState(0);
+
 
     useEffect(() => {
         async function fetchData(){
@@ -34,14 +36,23 @@ export default function Card (props){
     },[quantity]);
 
     useEffect(() => {
-        async function fetchData(plan){
+        async function fetchData(plan, days){
+            const calculateInterestReturn = (percent) => {
+                let acum = 1;
+                for(let i = 0; i < days; i++){
+                    acum += acum*percent;
+                }
+                console.log({acum, days, percent})
+                return acum - 1;
+            }
             console.log({connectContext});
             const response = await connectContext.contract.methods.getPercent(plan).call();
-            console.log({plan, response});
+            console.log({response})
+            setReturned((calculateInterestReturn(Number(response)/1000)*100).toFixed(2));
             setPercent(response);
         }
         if(connectContext !== null) 
-                fetchData(props.planId);
+                fetchData(props.planId, props.days);
     },[connectContext])
 
     useEffect(() => {
@@ -62,13 +73,13 @@ export default function Card (props){
 
             <div className="flex-row">
                 <div className="flex-col w-50">
-                    <p className="sm-txt">Daily Profit</p>
-                    <p className="bg-txt">{(percent/props.days).toFixed(2)}%</p>
+                    <p className="sm-txt">{props.planId === 2? 'Daily Profit' : 'Daily Accumulation'}</p>
+                    <p className="bg-txt">{(percent/10).toFixed(2)}%</p>
                 </div>
 
                 <div className="flex-col w-50">
                     <p className="sm-txt">Total Return</p>
-                    <p className="bg-txt">{percent}%</p>
+                    <p className="bg-txt">{props.planId === 2? percent*28 : returned}%</p>
                 </div>
             </div>
 
