@@ -79,7 +79,7 @@ export default function Card (props){
 
                 <div className="flex-col w-50">
                     <p className="sm-txt">Total Return</p>
-                    <p className="bg-txt">{props.planId === 2? percent*28 : returned}%</p>
+                    <p className="bg-txt">{props.planId === 2? percent*2.8 : returned}%</p>
                 </div>
             </div>
 
